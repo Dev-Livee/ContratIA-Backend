@@ -68,7 +68,7 @@ app:
     base-url: ${LATINFO_BASE_URL:https://api.latinfo.dev}
     api-key: ${LATINFO_API_KEY:}
   cors:
-    allowed-origins: ${CORS_ORIGINS:http://localhost:3000,http://localhost:5173}
+    allowed-origins: ${CORS_ORIGINS:http://localhost:3000,http://localhost:5173,http://localhost:5174,http://localhost:5175}
 
 server:
   port: ${PORT:8080}
