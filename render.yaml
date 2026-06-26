@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: contrataia-backend
+    runtime: docker
+    plan: free
+    envVars:
+      - key: DB_URL
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRATION_MS
+        value: "86400000"
+      - key: JWT_REFRESH_EXPIRATION_MS
+        value: "604800000"
+      - key: OTP_EXPIRATION_MINUTES
+        value: "10"
+      - key: MAIL_HOST
+        value: "smtp.gmail.com"
+      - key: MAIL_PORT
+        value: "587"
+      - key: MAIL_USERNAME
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
+      - key: LATINFO_BASE_URL
+        value: "https://api.latinfo.dev"
+      - key: LATINFO_API_KEY
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: SHOW_SQL
+        value: "false"
