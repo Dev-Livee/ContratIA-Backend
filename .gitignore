@@ -1,0 +1,20 @@
+# Secrets - NUNCA subir al repo
+.env
+
+# Maven
+target/
+*.class
+*.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/

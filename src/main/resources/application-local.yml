@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: "jdbc:postgresql://aws-1-us-west-2.pooler.supabase.com:5432/postgres?sslmode=require"
+    username: "postgres.vdeuicefvmziigohwwhz"
+    password: "Devlive123live"
+
+app:
+  latinfo:
+    base-url: "https://api.latinfo.dev"
+    api-key: "lat_cdf318fd9ef8e50d7a5ec20945f1d8d8db79aeccac79b3b948389813a8d33640"

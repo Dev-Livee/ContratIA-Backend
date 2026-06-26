@@ -1,0 +1,6 @@
+package pe.contrataia.shared.enums;
+
+public enum TipoIncidencia {
+    RETRASO, DEFECTO_CALIDAD, PROBLEMA_PRESUPUESTO, INCUMPLIMIENTO_CONTRATO,
+    ACCIDENTE, PARALIZACIÓN, CAMBIO_ALCANCE, GENERAL
+}
