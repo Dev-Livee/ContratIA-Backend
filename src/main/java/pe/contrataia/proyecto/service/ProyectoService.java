@@ -181,6 +181,13 @@ public class ProyectoService {
             throw new BusinessException("Para adjudicar usa el endpoint /adjudicar");
         }
 
+        if (req.estado() != EstadoProyecto.BORRADOR && proyecto.getCodigoUnico() == null) {
+            String codigo;
+            do { codigo = CodigoUnicoUtil.generar(); }
+            while (proyectoRepository.existsByCodigoUnico(codigo));
+            proyecto.setCodigoUnico(codigo);
+        }
+
         proyecto.setEstado(req.estado());
         return toResponse(proyectoRepository.save(proyecto));
     }

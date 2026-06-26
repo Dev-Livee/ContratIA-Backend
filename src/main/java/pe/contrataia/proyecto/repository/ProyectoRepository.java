@@ -22,18 +22,18 @@ public interface ProyectoRepository extends JpaRepository<Proyecto, UUID> {
 
     @Query(
         value = "SELECT p FROM Proyecto p"
-              + " WHERE (:distrito IS NULL OR LOWER(p.distrito) = LOWER(:distrito))"
-              + " AND (:rubro IS NULL OR LOWER(p.rubro) LIKE LOWER(CONCAT('%', :rubro, '%')))"
-              + " AND (:presupuestoMin IS NULL OR p.presupuesto >= :presupuestoMin)"
-              + " AND (:presupuestoMax IS NULL OR p.presupuesto <= :presupuestoMax)"
+              + " WHERE (CAST(:distrito AS string) IS NULL OR LOWER(p.distrito) = LOWER(CAST(:distrito AS string)))"
+              + " AND (CAST(:rubro AS string) IS NULL OR LOWER(p.rubro) LIKE LOWER(CONCAT('%', CAST(:rubro AS string), '%')))"
+              + " AND (CAST(:presupuestoMin AS big_decimal) IS NULL OR p.presupuesto >= :presupuestoMin)"
+              + " AND (CAST(:presupuestoMax AS big_decimal) IS NULL OR p.presupuesto <= :presupuestoMax)"
               + " AND p.estado <> pe.contrataia.shared.enums.EstadoProyecto.BORRADOR"
               + " AND (:#{#estado} IS NULL OR p.estado = :estado)"
               + " ORDER BY p.createdAt DESC",
         countQuery = "SELECT COUNT(p) FROM Proyecto p"
-              + " WHERE (:distrito IS NULL OR LOWER(p.distrito) = LOWER(:distrito))"
-              + " AND (:rubro IS NULL OR LOWER(p.rubro) LIKE LOWER(CONCAT('%', :rubro, '%')))"
-              + " AND (:presupuestoMin IS NULL OR p.presupuesto >= :presupuestoMin)"
-              + " AND (:presupuestoMax IS NULL OR p.presupuesto <= :presupuestoMax)"
+              + " WHERE (CAST(:distrito AS string) IS NULL OR LOWER(p.distrito) = LOWER(CAST(:distrito AS string)))"
+              + " AND (CAST(:rubro AS string) IS NULL OR LOWER(p.rubro) LIKE LOWER(CONCAT('%', CAST(:rubro AS string), '%')))"
+              + " AND (CAST(:presupuestoMin AS big_decimal) IS NULL OR p.presupuesto >= :presupuestoMin)"
+              + " AND (CAST(:presupuestoMax AS big_decimal) IS NULL OR p.presupuesto <= :presupuestoMax)"
               + " AND p.estado <> pe.contrataia.shared.enums.EstadoProyecto.BORRADOR"
               + " AND (:#{#estado} IS NULL OR p.estado = :estado)"
     )
